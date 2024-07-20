@@ -331,10 +331,10 @@ glyph-block Mark-Above : begin
 		local tildeWave : [linreg hsvhThin 2.925 hsvhHeav 2.375 hsvh] * [linreg defaultHvc 1 4.35 1.1 hvc]
 		local tildeWaveX 0.51
 
-		define z1 : currentGlyph.gizmo.apply : object [x leftEnd] [y tbot]
-		define z2 : currentGlyph.gizmo.apply : object [x : mix leftEnd rightEnd tildeWaveX] [y : mix tbot ttop tildeWave]
-		define z3 : currentGlyph.gizmo.apply : object [x : mix leftEnd rightEnd (1 - tildeWaveX)] [y : mix tbot ttop (1 - tildeWave)]
-		define z4 : currentGlyph.gizmo.apply : object [x rightEnd] [y ttop]
+		define z1 : currentGlyph.gizmo.apply : object [x leftEnd] [y (tbot + 30)]
+		define z2 : currentGlyph.gizmo.apply : object [x : mix leftEnd rightEnd tildeWaveX] [y : mix (tbot + 80) ttop tildeWave]
+		define z3 : currentGlyph.gizmo.apply : object [x : mix leftEnd rightEnd (1 - tildeWaveX)] [y : mix tbot (ttop - 80) (1 - tildeWave)]
+		define z4 : currentGlyph.gizmo.apply : object [x rightEnd] [y (ttop - 30)]
 
 		return { z1 z2 z3 z4 }
 
